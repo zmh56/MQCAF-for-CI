@@ -69,7 +69,7 @@ The dataset used in this study is the **EEV-CI dataset**, which includes synchro
 If you use this repository in your research, please cite our work:
 
 ```bibtex
-@article{your_citation_key,
+@article{xx,
   title={Multi-query Cross-modal Attention Fusion (MQCAF) for Cognitive Impairment Recognition},
   author={},
   journal={},
