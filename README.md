@@ -9,11 +9,9 @@ This study proposes a multi-query cross-modal attention fusion (MQCAF) model bas
 - [SRM-net](#srm-net)
 - [Facial_exp](#facial_exp)
 - [MQCAF](#mqcaf)
-- [Configuration](#configuration)
 - [Data](#data)
 - [Citation](#citation)
 - [License](#license)
-- [Contact](#contact)
 
 ## Installation
 
