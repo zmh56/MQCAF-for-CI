@@ -7,11 +7,9 @@
 These features are computed for each frame of the video to capture dynamic facial expressions over time. 
 
 #### AU Representation
-- **AU Frequency (AUP)**: The frequency of occurrence of each AU, which is defined as:
-  - $ \text{AUP} = \frac{\text{Number of AU Occurrences}}{\text{Total Frames}} $
+- **AU Frequency (AUP)**: The frequency of occurrence of each AU.
   
-- **AU Intensity (AUI)**: The average intensity of each AU, which is defined as:
-  - \( \text{AUI} = \frac{\text{Total AU Intensity}}{\text{Total Frames}} \)
+- **AU Intensity (AUI)**: The average intensity of each AU.
 
 ---
 
