@@ -1,4 +1,4 @@
-# Multi-Query Cross-Modal Attention Fusion (MQCAF) Model for Cognitive Impairment Recognition
+# Multi-Query Cross-Modal Attention Fusion (MQCAF) for Cognitive Impairment Recognition
 
 This study proposes a multi-query cross-modal attention fusion (MQCAF) model based on synchronized multimodal signals for cognitive impairment recognition. We constructed a standardized cognitive impairment assessment dataset (EEV-CI) containing synchronized EEG, ECG, and video signals. The MQCAF model integrates EEG, ECG, and video features to improve cognitive impairment prediction.
 
