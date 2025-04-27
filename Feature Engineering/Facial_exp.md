@@ -32,4 +32,4 @@ These features are computed for each frame of the video to capture dynamic facia
 ---
 
 ### Machine Learning Feature Extraction
-For reference, an example GitHub repository for facial expression feature extraction, including AU tracking and emotion classification, is available at [OpenFace](https://github.com/TadasBaltrusaitis/OpenFace).
+For reference, an example GitHub repository for facial expression feature extraction, including AU tracking and emotion classification, is available at [OpenFace](https://github.com/TadasBaltrusaitis/OpenFace) and (https://github.com/phamquiluan/ResidualMaskingNetwork).
