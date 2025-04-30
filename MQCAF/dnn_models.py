@@ -398,7 +398,9 @@ class att_my_multiquery_video(torch.nn.Module):
     def __init__(self, my_model_option):
         super().__init__()
         self.my_model_option = my_model_option
-        self.multi_query_attention = MultiQueryCrossModalAttention(self.my_model_option.mulhead_num_query, num_queries=3)
+        self.multi_query_attention_eeg = MultiQueryCrossModalAttention(self.my_model_option.mulhead_num_query, num_queries=3)
+        self.multi_query_attention_ecg = MultiQueryCrossModalAttention(self.my_model_option.mulhead_num_query, num_queries=3)
+        self.multi_query_attention_video = MultiQueryCrossModalAttention(self.my_model_option.mulhead_num_query, num_queries=3)
 
         self.fc_mul = torch.nn.Sequential(
             torch.nn.Linear(3 * self.my_model_option.mulhead_num_query ** 2, 1024),
@@ -416,16 +418,19 @@ class att_my_multiquery_video(torch.nn.Module):
             torch.nn.Linear(128, 2),
         )
 
-    def forward(self, x_ecg, x_eeg, x_speech):
+    def forward(self, x_ecg, x_eeg, x_video):
         batch = x_ecg.shape[0]
-        query_features_list = [x_ecg, x_eeg, x_speech]
+        query_features_list = [x_ecg, x_eeg, x_video]
 
-        x_all, final_attention = self.multi_query_attention(query_features_list, x_eeg)
-        x_ecg_att = x_ecg.reshape(batch, -1)
-        x_speech_att = x_speech.reshape(batch, -1)
+        x_all, _ = self.multi_query_attention_eeg(query_features_list, x_eeg)
+        x_ecg_att, _ = self.multi_query_attention_ecg(query_features_list, x_ecg)
+        x_video_att, _ = self.multi_query_attention_video(query_features_list, x_video)
+
+        x_ecg_att = x_ecg_att.reshape(batch, -1)
+        x_video_att = x_video_att.reshape(batch, -1)
         x_all = x_all.reshape(batch, -1)
 
-        x_all = torch.cat([x_ecg_att, x_speech_att, x_all], dim=1)
+        x_all = torch.cat([x_all, x_ecg_att, x_video_att], dim=1)
 
         x = self.fc_mul(x_all)
 
